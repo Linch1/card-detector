@@ -10,17 +10,20 @@ import imutils
 import threading
 import tkinter as tk
 import threading
+import sys
 root = tk.Tk()
 w = root.winfo_screenwidth()
 h = root.winfo_screenheight()
 
 print(w, h)
-
+print(sys.argv[0])
 
 
 
 images = {}
-
+CWD = sys.argv[0].split('/')
+CWD.remove(CWD[-1])
+CWD = '/'.join(CWD)
 CORNER_WIDTH = 150
 CORNER_HEIGHT = 160
 
@@ -379,11 +382,11 @@ def save_images(num_sized, symbol_sized):
 
 def populate_images():
     global images
-    for folder in os.listdir('cards'):
+    for folder in os.listdir(f'{CWD}/cards'):
         images[folder] = {}
-
-        for file_name in os.listdir(f'cards/{folder}'):
-            file = f'cards/{folder}/{file_name}'
+        print(folder)
+        for file_name in os.listdir(f'{CWD}/cards/{folder}'):
+            file = f'{CWD}/cards/{folder}/{file_name}'
             image = cv2.imread(file)
             image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
