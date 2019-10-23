@@ -1,16 +1,39 @@
 import time
-import cv2
-import mss
+import os
+try:
+    import cv2
+except:
+    os.system('pip3 install opencv-python')
+    import cv2
+
+try:
+    import mss
+except:
+    os.system('pip3 install mss')
+    import mss
+
 import numpy as np
 import subprocess
-from PIL import Image
+
+
+try:
+    from PIL import Image
+except:
+    os.system('pip3 install Pillow')
+    from PIL import Image
+
 from datetime import datetime
-import os
-import imutils
+
+
+try:
+    import imutils
+except:
+    os.system('pip3 install imutils')
+    import imutils
+
 import threading
 import tkinter as tk
-import threading
-import sys
+
 root = tk.Tk()
 w = root.winfo_screenwidth()
 h = root.winfo_screenheight()
