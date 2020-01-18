@@ -1,5 +1,6 @@
 import time
 import os
+import sys
 try:
     import cv2
 except:
@@ -39,14 +40,10 @@ w = root.winfo_screenwidth()
 h = root.winfo_screenheight()
 
 print(w, h)
-print(sys.argv[0])
-
-
+print(os.getcwd())
 
 images = {}
-CWD = sys.argv[0].split('/')
-CWD.remove(CWD[-1])
-CWD = '/'.join(CWD)
+CWD = os.getcwd()
 CORNER_WIDTH = 150
 CORNER_HEIGHT = 160
 
